@@ -6,7 +6,7 @@ export default function TransactionsPage() {
     const [txns, setTxns] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
-    const columns = ["Date", "Description", "Deposits", "Withdrawls", "Balance"];
+    const columns = ["Date", "Description", "Deposits", "Withdrawals", "Balance", "Category"];
     const [sortKey, setSortKey] = useState(columns[0]);
     const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
 
@@ -30,7 +30,7 @@ export default function TransactionsPage() {
             bVal = new Date(bVal);
         }
         // parsing deposits/withdrawals/balance:
-        else if (["Deposits", "Withdrawls", "Balance"].includes(sortKey)) {
+        else if (["Deposits", "Withdrawals", "Balance", "Category"].includes(sortKey)) {
             aVal = parseFloat(aVal) || 0;
             bVal = parseFloat(bVal) || 0;
         }
