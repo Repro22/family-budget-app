@@ -8,7 +8,11 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
         try {
             const json = fs.readFileSync(filePath, 'utf-8');
-            const transactions = JSON.parse(json);
+            const rawTxns = JSON.parse(json);
+            const transactions = rawTxns.map(tx => ({
+                ...tx,
+                Category: tx.Category || ""
+            }));
             return res.status(200).json(transactions);
         } catch (err) {
             console.error('Read error:', err);
