@@ -20,7 +20,7 @@ export default function Page() {
             setError('Please choose a CSV file first.');
             return;
         }
-        Papa.parse(file, {
+        Papa.parse (file, {
             header: true,
             skipEmptyLines: true,
             complete: ({ data, errors }) => {
@@ -50,45 +50,5 @@ export default function Page() {
         };
 
 
-    return (
-        <div style={{ maxWidth: 600, margin: '2rem auto', padding: '0 1rem' }}>
-            <h1>Import Transactions</h1>
 
-            <input
-                type="file"
-                accept=".csv"
-                onChange={handleFileChange}
-            />
-            <button onClick={handleParse} style={{ marginLeft: '1rem' }}>
-                Parse CSV
-            </button>
-
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-
-            {transactions.length > 0 && (
-                <>
-                    <h2>Preview</h2>
-                    <table border="1" cellPadding="4" style={{ width: '100%', marginBottom: '1rem' }}>
-                        <thead>
-                        <tr>
-                            {Object.keys(transactions[0]).map((col) => (
-                                <th key={col}>{col}</th>
-                            ))}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {transactions.slice(0, 5).map((txn, i) => (
-                            <tr key={i}>
-                                {Object.values(txn).map((val, j) => (
-                                    <td key={j}>{val}</td>
-                                ))}
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                    <button onClick={handleConfirm}>Confirm Import</button>
-                </>
-            )}
-        </div>
-    );
 }

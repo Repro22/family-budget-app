@@ -17,7 +17,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
+    // WIP Frontend needed for next assigment
+    const enableUI = process.env.NEXT_PUBLIC_ENABLE_UI === 'true';
+
+
+    if (!enableUI) {
+        return null;
+    }
+    return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

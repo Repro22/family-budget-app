@@ -11,7 +11,7 @@ export default async function handler(req, res) {
             const rawTxns = JSON.parse(json);
             const transactions = rawTxns.map(tx => ({
                 ...tx,
-                Category: tx.Category || ""
+                Category: tx.Category ?? tx.category ?? ""
             }));
             return res.status(200).json(transactions);
         } catch (err) {

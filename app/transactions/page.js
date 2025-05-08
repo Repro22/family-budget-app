@@ -42,58 +42,5 @@ export default function TransactionsPage() {
     if (loading) return <p style={{ padding: 20 }}>Loading…</p>;
     if (error) return <p style={{ padding: 20, color: 'red' }}>Error: {error}</p>;
 
-    return (
-        <div style={{ maxWidth: 800, margin: '2rem auto', padding: '0 1rem' }}>
-            <h1>All Transactions</h1>
 
-            {/* Sorting Controls */}
-            <div style={{ marginBottom: "1rem" }}>
-                <label>
-                    Sort by:&nbsp;
-                    <select
-                        value={sortKey}
-                        onChange={(e) => setSortKey(e.target.value)}
-                    >
-                        {columns.map((col) => (
-                            <option key={col} value={col}>
-                                {col}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <button
-                    onClick={() =>
-                        setSortOrder((o) => (o === "asc" ? "desc" : "asc"))
-                    }
-                    style={{ marginLeft: "1rem" }}
-                >
-                    {sortOrder === "asc" ? "↑ Asc" : "↓ Desc"}
-                </button>
-            </div>
-
-            {/* Data Table */}
-            {sortedTxns.length === 0 ? (
-                <p>No transactions imported yet.</p>
-            ) : (
-                <table border="1" cellPadding="4" style={{ width: '100%' }}>
-                    <thead>
-                    <tr>
-                        {Object.keys(sortedTxns[0]).map((col) => (
-                            <th key={col}>{col}</th>
-                        ))}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {sortedTxns.map((txn, i) => (
-                        <tr key={i}>
-                            {columns.map((col) => (
-                                <td key={col}>{txn[col]}</td>
-                            ))}
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            )}
-        </div>
-    );
 }
