@@ -13,7 +13,7 @@
     "Deposits": "147,844.20",
     "Withdrawals": "00.00",
     "Balance": "231,683.50",
-    "Category": "Groceries"
+    "Category": "Rent/Mortgage"
   },
   {
     "Date": "20-Aug-2020",
@@ -21,7 +21,7 @@
     "Deposits": "17,192.00",
     "Withdrawals": "00.00",
     "Balance": "248,875.50",
-    "Category": "Groceries"
+    "Category": "Rent/Mortgage"
   },
   {
     "Date": "21-Aug-2020",
@@ -29,7 +29,7 @@
     "Deposits": "08.00",
     "Withdrawals": "00.00",
     "Balance": "248,883.50",
-    "Category": "Groceries"
+    "Category": ""
   },
   {
     "Date": "21-Aug-2020",
@@ -37,7 +37,7 @@
     "Deposits": "00.00",
     "Withdrawals": "82,961.17",
     "Balance": "165,922.33",
-    "Category": "Groceries"
+    "Category": "Utilities"
   },
   {
     "Date": "21-Aug-2020",
@@ -53,7 +53,7 @@
     "Deposits": "00.00",
     "Withdrawals": "19,038.17",
     "Balance": "171,343.56",
-    "Category": "Groceries"
+    "Category": "Buzerant"
   },
   {
     "Date": "21-Aug-2020",
@@ -61,7 +61,7 @@
     "Deposits": "305,878.00",
     "Withdrawals": "00.00",
     "Balance": "477,221.56",
-    "Category": "Transportation"
+    "Category": ""
   },
   {
     "Date": "21-Aug-2020",
@@ -69,7 +69,7 @@
     "Deposits": "1,144,337.80",
     "Withdrawals": "00.00",
     "Balance": "1,621,559.36",
-    "Category": "Transportation"
+    "Category": ""
   },
   {
     "Date": "21-Aug-2020",
@@ -77,7 +77,7 @@
     "Deposits": "00.00",
     "Withdrawals": "405,389.84",
     "Balance": "1,216,169.52",
-    "Category": "Transportation"
+    "Category": ""
   },
   {
     "Date": "21-Aug-2020",
@@ -93,7 +93,7 @@
     "Deposits": "20,014.02",
     "Withdrawals": "00.00",
     "Balance": "1,236,216.62",
-    "Category": "Dining Out"
+    "Category": "Savings"
   },
   {
     "Date": "21-Aug-2020",
@@ -101,7 +101,7 @@
     "Deposits": "00.00",
     "Withdrawals": "1,236,216.62",
     "Balance": "00.00",
-    "Category": "Rent/Mortgage"
+    "Category": "Entertainment"
   },
   {
     "Date": "22-Aug-2020",
@@ -117,7 +117,7 @@
     "Deposits": "04.90",
     "Withdrawals": "00.00",
     "Balance": "4,036.50",
-    "Category": "Utilities"
+    "Category": ""
   },
   {
     "Date": "22-Aug-2020",
@@ -125,7 +125,7 @@
     "Deposits": "488.61",
     "Withdrawals": "00.00",
     "Balance": "4,525.11",
-    "Category": ""
+    "Category": "Dining Out"
   },
   {
     "Date": "22-Aug-2020",
@@ -133,7 +133,7 @@
     "Deposits": "667,800.00",
     "Withdrawals": "00.00",
     "Balance": "672,325.11",
-    "Category": "Education"
+    "Category": ""
   },
   {
     "Date": "22-Aug-2020",
@@ -149,7 +149,7 @@
     "Deposits": "162,939.70",
     "Withdrawals": "00.00",
     "Balance": "723,210.63",
-    "Category": "Education"
+    "Category": ""
   },
   {
     "Date": "22-Aug-2020",
@@ -157,7 +157,7 @@
     "Deposits": "361.00",
     "Withdrawals": "00.00",
     "Balance": "723,571.63",
-    "Category": "Transportation"
+    "Category": ""
   },
   {
     "Date": "22-Aug-2020",
@@ -165,7 +165,7 @@
     "Deposits": "00.00",
     "Withdrawals": "72,357.16",
     "Balance": "651,214.47",
-    "Category": "Transportation"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -181,7 +181,7 @@
     "Deposits": "00.00",
     "Withdrawals": "93,030.64",
     "Balance": "465,153.19",
-    "Category": "Healthcare"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -189,7 +189,7 @@
     "Deposits": "00.00",
     "Withdrawals": "51,683.69",
     "Balance": "413,469.50",
-    "Category": "Dining Out"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -205,7 +205,7 @@
     "Deposits": "63.65",
     "Withdrawals": "00.00",
     "Balance": "367,592.09",
-    "Category": "Transportation"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -213,7 +213,7 @@
     "Deposits": "03.00",
     "Withdrawals": "00.00",
     "Balance": "367,595.09",
-    "Category": "Entertainment"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -221,7 +221,7 @@
     "Deposits": "650,861.00",
     "Withdrawals": "00.00",
     "Balance": "1,018,456.09",
-    "Category": "Miscellaneous"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -229,7 +229,7 @@
     "Deposits": "34.93",
     "Withdrawals": "00.00",
     "Balance": "1,018,491.02",
-    "Category": "Savings"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -237,7 +237,7 @@
     "Deposits": "00.00",
     "Withdrawals": "1,018,491.02",
     "Balance": "00.00",
-    "Category": "Education"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -245,7 +245,7 @@
     "Deposits": "06.11",
     "Withdrawals": "00.00",
     "Balance": "06.11",
-    "Category": "Savings"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -253,7 +253,7 @@
     "Deposits": "15,980.88",
     "Withdrawals": "00.00",
     "Balance": "15,986.99",
-    "Category": "Education"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -261,7 +261,7 @@
     "Deposits": "00.00",
     "Withdrawals": "15,986.99",
     "Balance": "00.00",
-    "Category": "Healthcare"
+    "Category": ""
   },
   {
     "Date": "23-Aug-2020",
@@ -7997,10 +7997,6 @@
     "Deposits": "58.09",
     "Withdrawals": "00.00",
     "Balance": "231,642.13",
-    "Category": ""
-  },
-  {
-    "Date": "",
     "Category": ""
   }
 ]

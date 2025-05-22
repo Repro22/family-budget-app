@@ -10,16 +10,21 @@ export default function ImportTransactionsPage() {
     const handleUpload = (file) => {
         Papa.parse(file, {
             header: true,
+            skipEmptyLines: true,
             complete: (results) => {
-                const data = results.data.map(row => ({
-                    Date: row.Date,
-                    Description: row.Description,
-                    Deposits: row.Deposits,
-                    Withdrawals: row.Withdrawals,
-                    Balance: row.Balance,
-                    Category: ""
-                }));
-
+                const data = results.data
+                    .filter(row =>
+                        row.Date !== "Date" &&  // remove CSV header row if included
+                        Object.values(row).some(val => val && val.trim() !== "")
+                    )
+                    .map(row => ({
+                        Date: row.Date,
+                        Description: row.Description,
+                        Deposits: row.Deposits,
+                        Withdrawals: row.Withdrawals,
+                        Balance: row.Balance,
+                        Category: ""
+                    }));
                 uploadTransactions(data);
             }
         });
