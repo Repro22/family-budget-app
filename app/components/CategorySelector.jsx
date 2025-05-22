@@ -73,22 +73,25 @@ export function CategorySelector() {
                     <thead className="bg-gray-100 dark:bg-gray-700">
                     <tr>
                         {dataColumns.map(col => (
-                            <th key={col} className="p-2 border">{col}</th>
+                            <th key={col} className="p-2 border font-medium text-sm text-gray-700 dark:text-gray-200">{col}</th>
                         ))}
-                        <th className="p-2 border">Category</th>
+                        <th className="p-2 border font-medium text-sm text-gray-700 dark:text-gray-200">Category</th>
                     </tr>
                     </thead>
                     <tbody>
                     {txns.map((tx, idx) => (
-                        <tr key={idx} className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900">
+                        <tr
+                            key={idx}
+                            className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900 hover:bg-blue-50 dark:hover:bg-gray-700"
+                        >
                             {dataColumns.map(col => (
-                                <td key={col} className="p-2 border">{tx[col]}</td>
+                                <td key={col} className="p-2 border text-sm">{tx[col]}</td>
                             ))}
                             <td className="p-2 border">
                                 <select
                                     value={tx.Category || ""}
                                     onChange={e => handleCategoryChange(idx, e.target.value)}
-                                    className="p-1 border rounded w-full"
+                                    className="p-1 border rounded w-full text-sm bg-white dark:bg-gray-800 dark:text-white"
                                 >
                                     <option value="">Uncategorized</option>
                                     {predefinedCategories.map(cat => (
@@ -116,15 +119,18 @@ export function CategorySelector() {
                                     <thead className="bg-gray-100 dark:bg-gray-700">
                                     <tr>
                                         {dataColumns.map(col => (
-                                            <th key={col} className="p-2 border">{col}</th>
+                                            <th key={col} className="p-2 border font-medium text-sm text-gray-700 dark:text-gray-200">{col}</th>
                                         ))}
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {groupedTxns[category].map(row => (
-                                        <tr key={row._idx} className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900">
+                                        <tr
+                                            key={row._idx}
+                                            className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900 hover:bg-blue-50 dark:hover:bg-gray-700"
+                                        >
                                             {dataColumns.map(col => (
-                                                <td key={col} className="p-2 border">{row[col]}</td>
+                                                <td key={col} className="p-2 border text-sm">{row[col]}</td>
                                             ))}
                                         </tr>
                                     ))}
