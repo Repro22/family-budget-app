@@ -5,7 +5,7 @@
     "Deposits": "548.2",
     "Withdrawals": "",
     "Balance": "548.20",
-    "Category": "Refund"
+    "Category": "Dining Out"
   },
   {
     "Date": "2025-05-09",
@@ -13,7 +13,7 @@
     "Deposits": "785.77",
     "Withdrawals": "",
     "Balance": "1333.97",
-    "Category": "Bonus"
+    "Category": ""
   },
   {
     "Date": "2024-12-02",
@@ -21,7 +21,7 @@
     "Deposits": "",
     "Withdrawals": "568.58",
     "Balance": "765.39",
-    "Category": "Groceries"
+    "Category": ""
   },
   {
     "Date": "2025-01-19",
@@ -29,7 +29,7 @@
     "Deposits": "",
     "Withdrawals": "760.65",
     "Balance": "4.74",
-    "Category": "Transportation"
+    "Category": "Groceries"
   },
   {
     "Date": "2024-12-01",
@@ -37,7 +37,7 @@
     "Deposits": "357.73",
     "Withdrawals": "",
     "Balance": "362.47",
-    "Category": "Rent/Mortgage"
+    "Category": ""
   },
   {
     "Date": "2024-09-02",
@@ -45,7 +45,7 @@
     "Deposits": "702.26",
     "Withdrawals": "",
     "Balance": "1064.73",
-    "Category": "Utilities"
+    "Category": ""
   },
   {
     "Date": "2024-06-14",
@@ -53,7 +53,7 @@
     "Deposits": "778.07",
     "Withdrawals": "",
     "Balance": "1842.80",
-    "Category": "Groceries"
+    "Category": ""
   },
   {
     "Date": "2024-08-29",
@@ -61,7 +61,7 @@
     "Deposits": "279.79",
     "Withdrawals": "",
     "Balance": "2122.59",
-    "Category": "Healthcare"
+    "Category": "Groceries"
   },
   {
     "Date": "2025-05-13",
@@ -69,7 +69,7 @@
     "Deposits": "68.07",
     "Withdrawals": "",
     "Balance": "2190.66",
-    "Category": "Savings"
+    "Category": ""
   },
   {
     "Date": "2024-07-26",
@@ -77,7 +77,7 @@
     "Deposits": "423.88",
     "Withdrawals": "",
     "Balance": "2614.54",
-    "Category": "Entertainment"
+    "Category": ""
   },
   {
     "Date": "2024-07-08",
@@ -85,7 +85,7 @@
     "Deposits": "274.82",
     "Withdrawals": "",
     "Balance": "2889.36",
-    "Category": "Utilities"
+    "Category": ""
   },
   {
     "Date": "2024-09-08",
@@ -93,7 +93,7 @@
     "Deposits": "",
     "Withdrawals": "746.51",
     "Balance": "2142.85",
-    "Category": "Entertainment"
+    "Category": ""
   },
   {
     "Date": "2024-06-09",
@@ -101,7 +101,7 @@
     "Deposits": "",
     "Withdrawals": "838.27",
     "Balance": "1304.58",
-    "Category": "Dining Out"
+    "Category": ""
   },
   {
     "Date": "2024-06-03",
@@ -109,7 +109,7 @@
     "Deposits": "130.82",
     "Withdrawals": "",
     "Balance": "1435.40",
-    "Category": "Rent/Mortgage"
+    "Category": ""
   },
   {
     "Date": "2024-11-25",
@@ -117,7 +117,7 @@
     "Deposits": "544.45",
     "Withdrawals": "",
     "Balance": "1979.85",
-    "Category": "Refund"
+    "Category": ""
   },
   {
     "Date": "2024-06-08",
@@ -125,7 +125,7 @@
     "Deposits": "840.37",
     "Withdrawals": "",
     "Balance": "2820.22",
-    "Category": "Bonus"
+    "Category": ""
   },
   {
     "Date": "2024-08-20",
@@ -133,7 +133,7 @@
     "Deposits": "835.1",
     "Withdrawals": "",
     "Balance": "3655.32",
-    "Category": "Refund"
+    "Category": ""
   },
   {
     "Date": "2025-03-22",
@@ -141,7 +141,7 @@
     "Deposits": "",
     "Withdrawals": "275.66",
     "Balance": "3379.66",
-    "Category": "Refund"
+    "Category": ""
   },
   {
     "Date": "2024-09-30",
@@ -149,7 +149,7 @@
     "Deposits": "",
     "Withdrawals": "944.96",
     "Balance": "2434.70",
-    "Category": "Bonus"
+    "Category": ""
   },
   {
     "Date": "2025-05-09",
@@ -165,7 +165,7 @@
     "Deposits": "886.84",
     "Withdrawals": "",
     "Balance": "3989.78",
-    "Category": "Utilities"
+    "Category": ""
   },
   {
     "Date": "2025-02-08",

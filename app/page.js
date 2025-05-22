@@ -1,15 +1,5 @@
-"use client";
+import { redirect } from 'next/navigation';
 
-import Link from "next/link";
-
-export default function Home() {
-  return (
-      <main style={{ padding: 20 }}>
-        <h1></h1>
-          <p><Link href="/import-transactions">Import Transactions</Link></p>
-          <p><Link href="/transactions">View Transactions</Link></p>
-          <p><Link href="/categories">View Categories</Link></p>
-          <p><Link href="/statistics">View Statistics</Link></p>
-      </main>
-  );
+export default function RootPage() {
+    redirect('/import-transactions');
 }
