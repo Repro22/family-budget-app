@@ -1,94 +1,78 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function TransactionsPage() {
-    const [txns, setTxns] = useState([]);
-    const [error, setError] = useState('');
+    const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
-    const columns = ["Date", "Description", "Deposits", "Withdrawals", "Balance", "Category"];
-    const [sortKey, setSortKey] = useState(columns[0]);
-    const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
+    const [sortKey, setSortKey] = useState('Date');
+    const [sortOrder, setSortOrder] = useState('asc');
 
     useEffect(() => {
-        fetch('/api/transactions')
-            .then((res) => {
-                if (!res.ok) throw new Error('Network response was not ok');
-                return res.json();
-            })
-            .then((data) => setTxns(data))
-            .catch((err) => setError(err.message))
-            .finally(() => setLoading(false));
+        const fetchTransactions = async () => {
+            try {
+                const res = await fetch('/api/transactions');
+                const data = await res.json();
+                setTransactions(Array.isArray(data) ? data : []);
+            } catch (err) {
+                console.error('Failed to fetch transactions', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchTransactions();
     }, []);
 
-    const sortedTxns = [...txns].sort((a, b) => {
-        let aVal = a[sortKey];
-        let bVal = b[sortKey];
-        // date parsing
-        if (sortKey === "Date") {
-            aVal = new Date(aVal);
-            bVal = new Date(bVal);
-        }
-        // parsing deposits/withdrawals/balance:
-        else if (["Deposits", "Withdrawals", "Balance", "Category"].includes(sortKey)) {
-            aVal = parseFloat(aVal) || 0;
-            bVal = parseFloat(bVal) || 0;
-        }
-        if (aVal < bVal) return sortOrder === "asc" ? -1 : 1;
-        if (aVal > bVal) return sortOrder === "asc" ? 1 : -1;
+    const sortedTransactions = [...transactions].sort((a, b) => {
+        if (a[sortKey] < b[sortKey]) return sortOrder === 'asc' ? -1 : 1;
+        if (a[sortKey] > b[sortKey]) return sortOrder === 'asc' ? 1 : -1;
         return 0;
     });
 
-    if (loading) return <p style={{ padding: 20 }}>Loading…</p>;
-    if (error) return <p style={{ padding: 20, color: 'red' }}>Error: {error}</p>;
-
     return (
-        <div style={{ maxWidth: 800, margin: '2rem auto', padding: '0 1rem' }}>
-            <h1>All Transactions</h1>
-
-            {/* Sorting Controls */}
-            <div style={{ marginBottom: "1rem" }}>
+        <div className="max-w-5xl mx-auto">
+            <h1 className="text-2xl font-semibold mb-4">Transactions</h1>
+            <div className="flex gap-4 mb-4">
                 <label>
-                    Sort by:&nbsp;
-                    <select
-                        value={sortKey}
-                        onChange={(e) => setSortKey(e.target.value)}
-                    >
-                        {columns.map((col) => (
-                            <option key={col} value={col}>
-                                {col}
-                            </option>
-                        ))}
+                    Sort by:
+                    <select className="ml-2 p-1 border rounded" value={sortKey} onChange={(e) => setSortKey(e.target.value)}>
+                        <option value="Date">Date</option>
+                        <option value="Deposits">Deposits</option>
+                        <option value="Withdrawals">Withdrawals</option>
+                        <option value="Balance">Balance</option>
                     </select>
                 </label>
-                <button
-                    onClick={() =>
-                        setSortOrder((o) => (o === "asc" ? "desc" : "asc"))
-                    }
-                    style={{ marginLeft: "1rem" }}
-                >
-                    {sortOrder === "asc" ? "↑ Asc" : "↓ Desc"}
-                </button>
+                <label>
+                    Order:
+                    <select className="ml-2 p-1 border rounded" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </label>
             </div>
-
-            {/* Data Table */}
-            {sortedTxns.length === 0 ? (
-                <p>No transactions imported yet.</p>
+            {loading ? (
+                <p>Loading...</p>
             ) : (
-                <table border="1" cellPadding="4" style={{ width: '100%' }}>
-                    <thead>
+                <table className="w-full text-left border border-collapse border-gray-300">
+                    <thead className="bg-gray-100 dark:bg-gray-700">
                     <tr>
-                        {Object.keys(sortedTxns[0]).map((col) => (
-                            <th key={col}>{col}</th>
-                        ))}
+                        <th className="p-2 border">Date</th>
+                        <th className="p-2 border">Description</th>
+                        <th className="p-2 border">Deposits</th>
+                        <th className="p-2 border">Withdrawals</th>
+                        <th className="p-2 border">Balance</th>
+                        <th className="p-2 border">Category</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {sortedTxns.map((txn, i) => (
-                        <tr key={i}>
-                            {columns.map((col) => (
-                                <td key={col}>{txn[col]}</td>
-                            ))}
+                    {sortedTransactions.map((tx, index) => (
+                        <tr key={index} className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900">
+                            <td className="p-2 border">{tx.Date}</td>
+                            <td className="p-2 border">{tx.Description}</td>
+                            <td className="p-2 border">{tx.Deposits}</td>
+                            <td className="p-2 border">{tx.Withdrawals}</td>
+                            <td className="p-2 border">{tx.Balance}</td>
+                            <td className="p-2 border">{tx.Category}</td>
                         </tr>
                     ))}
                     </tbody>

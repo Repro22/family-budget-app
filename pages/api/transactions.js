@@ -8,11 +8,7 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
         try {
             const json = fs.readFileSync(filePath, 'utf-8');
-            const rawTxns = JSON.parse(json);
-            const transactions = rawTxns.map(tx => ({
-                ...tx,
-                Category: tx.Category || ""
-            }));
+            const transactions = JSON.parse(json);
             return res.status(200).json(transactions);
         } catch (err) {
             console.error('Read error:', err);
@@ -25,9 +21,7 @@ export default async function handler(req, res) {
             const transactions = req.body;
             fs.mkdirSync(dataDir, { recursive: true });
             fs.writeFileSync(filePath, JSON.stringify(transactions, null, 2));
-            return res
-                .status(200)
-                .json({ message: 'Imported successfully', count: transactions.length });
+            return res.status(200).json({ message: 'Imported successfully', count: transactions.length });
         } catch (err) {
             console.error('Write error:', err);
             return res.status(500).json({ error: 'Failed to save transactions' });

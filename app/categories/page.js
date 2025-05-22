@@ -60,7 +60,7 @@ export default function CategoriesPage() {
         }
     };
 
-    if (loading) return <p style={{ padding: 20 }}>Loading…</p>;
+    if (loading) return <p style={{ padding: 20 }}>Loading...</p>;
     if (error) return <p style={{ padding: 20, color: "red" }}>Error: {error}</p>;
 
     const dataColumns = txns.length

@@ -1,29 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { HeaderBar } from "./components/HeaderBar";
 
 export const metadata = {
-  title: "Family Budget App",
-  description: "Work in progress",
+    title: "FamilyBudget",
+    description: "Track and analyze your family expenses",
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+        <body className="min-h-screen bg-white text-gray-800 dark:bg-gray-900 dark:text-white">
+        <HeaderBar />
+        <main className="p-4">{children}</main>
+        </body>
+        </html>
+    );
 }
