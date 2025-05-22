@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Papa from 'papaparse';
-import { FileUpload } from '../components/FileUpload';
+import { FileUpload } from '@/app/shared-components/FileUpload';
 
 export default function ImportTransactionsPage() {
     const [message, setMessage] = useState(null);

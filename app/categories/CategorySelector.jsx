@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { ToggleViewSwitcher } from '../components/ToggleViewSwitcher';
+import { ToggleViewSwitcher } from '@/app/shared-components/ToggleViewSwitcher';
 
 export function CategorySelector({
                                      txns,

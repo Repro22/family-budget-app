@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { ToggleViewSwitcher } from '../components/ToggleViewSwitcher';
+import { ToggleViewSwitcher } from '@/app/shared-components/ToggleViewSwitcher';
 import { CategorySelector } from './CategorySelector';
 
 const predefinedCategories = [

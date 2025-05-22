@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nivo/bump": "^0.98.0",
+    "@nivo/line": "^0.98.0",
+    "@nivo/pie": "^0.98.0",
     "date-fns": "^4.1.0",
     "formidable": "^3.5.4",
     "next": "15.3.1",

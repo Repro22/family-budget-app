@@ -1,5 +1,5 @@
 import "./globals.css";
-import { HeaderBar } from "./components/HeaderBar";
+import { HeaderBar } from "@/app/shared-components/HeaderBar";
 
 export const metadata = {
     title: "FamilyBudget",
