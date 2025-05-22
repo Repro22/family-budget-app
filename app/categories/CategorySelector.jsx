@@ -1,58 +1,28 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { ToggleViewSwitcher } from './ToggleViewSwitcher';
+import React from 'react';
+import { ToggleViewSwitcher } from '../components/ToggleViewSwitcher';
 
-const predefinedCategories = [
-    "Groceries", "Rent/Mortgage", "Utilities", "Transportation",
-    "Dining Out", "Entertainment", "Healthcare", "Education",
-    "Savings", "Miscellaneous"
-];
-const newCustomOption = "– New custom –";
-
-export function CategorySelector() {
-    const [txns, setTxns] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-    const [customCategories, setCustomCategories] = useState([]);
-    const [viewMode, setViewMode] = useState("all");
-
-    useEffect(() => {
-        fetch("/api/transactions")
-            .then(res => {
-                if (!res.ok) throw new Error("Network response was not ok");
-                return res.json();
-            })
-            .then(data => setTxns(data))
-            .catch(err => setError(err.message))
-            .finally(() => setLoading(false));
-    }, []);
-
-    const handleCategoryChange = async (idx, value) => {
-        let newCategory = value;
-        if (value === newCustomOption) {
-            const input = prompt("Enter new category name:");
-            if (!input) return;
-            newCategory = input;
-            setCustomCategories(prev => [...prev, input]);
-        }
-        try {
-            const res = await fetch(`/api/${idx}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ Category: newCategory })
-            });
-            if (!res.ok) throw new Error("Failed to update");
-            const updated = await res.json();
-            setTxns(prev => prev.map((tx, i) => (i === idx ? updated : tx)));
-        } catch (err) {
-            console.error(err);
-            alert(`Update failed: ${err.message}`);
-        }
-    };
-
+export function CategorySelector({
+                                     txns,
+                                     loading,
+                                     error,
+                                     viewMode,
+                                     setViewMode,
+                                     handleCategoryChange,
+                                     customCategories,
+                                     predefinedCategories,
+                                     newCustomOption
+                                 }) {
     const dataColumns = txns.length ? Object.keys(txns[0]).filter(col => col !== "Category") : [];
     const allCategories = ["Uncategorized", ...predefinedCategories, ...customCategories];
+    const columnWidths = {
+        Date: 'w-[120px]',
+        Description: 'w-[200px]',
+        Deposits: 'w-[120px]',
+        Withdrawals: 'w-[120px]',
+        Balance: 'w-[120px]',
+    };
     const groupedTxns = txns.reduce((acc, tx, idx) => {
         const cat = tx.Category || "Uncategorized";
         if (!acc[cat]) acc[cat] = [];
@@ -73,7 +43,12 @@ export function CategorySelector() {
                     <thead className="bg-gray-100 dark:bg-gray-700">
                     <tr>
                         {dataColumns.map(col => (
-                            <th key={col} className="p-2 border font-medium text-sm text-gray-700 dark:text-gray-200">{col}</th>
+                            <th
+                                key={col}
+                                className={`p-2 border font-medium text-sm text-gray-700 dark:text-gray-200 ${columnWidths[col] || ''}`}
+                            >
+                                {col}
+                            </th>
                         ))}
                         <th className="p-2 border font-medium text-sm text-gray-700 dark:text-gray-200">Category</th>
                     </tr>
@@ -85,7 +60,7 @@ export function CategorySelector() {
                             className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900 hover:bg-blue-50 dark:hover:bg-gray-700"
                         >
                             {dataColumns.map(col => (
-                                <td key={col} className="p-2 border text-sm">{tx[col]}</td>
+                                <td key={col} className={`p-2 border text-sm ${columnWidths[col] || ''}`}>{tx[col]}</td>
                             ))}
                             <td className="p-2 border">
                                 <select
@@ -111,7 +86,7 @@ export function CategorySelector() {
 
             {viewMode === "grouped" && (
                 <div>
-                {allCategories.filter(c => c !== "Uncategorized").map(category => (
+                    {allCategories.filter(c => c !== "Uncategorized").map(category => (
                         groupedTxns[category] && (
                             <div key={category} className="mb-8">
                                 <h2 className="text-xl font-semibold mb-2">{category}</h2>
@@ -119,7 +94,12 @@ export function CategorySelector() {
                                     <thead className="bg-gray-100 dark:bg-gray-700">
                                     <tr>
                                         {dataColumns.map(col => (
-                                            <th key={col} className="p-2 border font-medium text-sm text-gray-700 dark:text-gray-200">{col}</th>
+                                            <th
+                                                key={col}
+                                                className={`p-2 border font-medium text-sm text-gray-700 dark:text-gray-200 ${columnWidths[col] || ''}`}
+                                            >
+                                                {col}
+                                            </th>
                                         ))}
                                     </tr>
                                     </thead>
@@ -130,7 +110,7 @@ export function CategorySelector() {
                                             className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900 hover:bg-blue-50 dark:hover:bg-gray-700"
                                         >
                                             {dataColumns.map(col => (
-                                                <td key={col} className="p-2 border text-sm">{row[col]}</td>
+                                                <td key={col} className={`p-2 border text-sm ${columnWidths[col] || ''}`}>{row[col]}</td>
                                             ))}
                                         </tr>
                                     ))}
